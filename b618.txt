@@ -1,0 +1,9 @@
+#!/bin/sh
+# VLESS Pro (Huawei B618) - pemasang satu arahan untuk Termux
+B=https://raw.githubusercontent.com/tuahwa1990-cpu/vless-manager-update/main
+cd "$HOME" || exit 1
+echo "Memuat turun VLESS Pro ..."
+rm -rf vlesspro-b618 vlesspro-b618.tgz
+curl -fsSL -o vlesspro-b618.tgz "$B/vlesspro-b618.tgz" || { echo "GAGAL memuat turun. Semak internet telefon."; exit 1; }
+tar xzf vlesspro-b618.tgz || { echo "GAGAL mengekstrak"; exit 1; }
+sh vlesspro-b618/pasang.sh "$@"
